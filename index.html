@@ -588,6 +588,37 @@
         color: #a65c3e;
       }
 
+      .review-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .review-button {
+        min-width: 0;
+        min-height: 44px;
+        flex: 1;
+        padding: 8px 6px;
+        border: 2px solid #294d67;
+        background: #fff3cc;
+        box-shadow: 0 3px 0 #9c835c;
+        color: #20384b;
+        cursor: pointer;
+        font-size: 9px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .review-button:active:not(:disabled) {
+        transform: translateY(2px);
+        box-shadow: 0 1px 0 #9c835c;
+      }
+
+      .review-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+      }
+
       .next-button {
         margin-top: 13px;
         background: #91bd70;
@@ -838,6 +869,12 @@
             <strong id="feedback-title"></strong>
             <span id="feedback-text"></span>
           </div>
+          <div class="review-actions" id="review-actions" hidden>
+            <button class="review-button" id="retry-button" type="button">Responder novamente ↻</button>
+            <button class="review-button" id="previous-question-button" type="button">
+              Voltar à pergunta anterior ◀
+            </button>
+          </div>
           <button class="next-button" id="next-button" type="button" hidden>Continuar jornada ▶</button>
           <p class="game-note">Dica da Lia: realizando as atividades com qualidade, garantimos férias tranquilas.</p>
 
@@ -950,6 +987,9 @@
       const feedback = document.getElementById("feedback");
       const feedbackTitle = document.getElementById("feedback-title");
       const feedbackText = document.getElementById("feedback-text");
+      const reviewActions = document.getElementById("review-actions");
+      const retryButton = document.getElementById("retry-button");
+      const previousQuestionButton = document.getElementById("previous-question-button");
       const nextButton = document.getElementById("next-button");
       const missionCounter = document.getElementById("mission-counter");
       const scoreDisplay = document.getElementById("score");
@@ -964,6 +1004,7 @@
       let currentQuestion = 0;
       let score = 0;
       let answered = false;
+      const selectedAnswers = Array(questions.length).fill(null);
 
       function drawWorld(canvas) {
         const context = canvas.getContext("2d");
@@ -1068,8 +1109,10 @@
         questionTitle.textContent = question.prompt;
         feedback.hidden = true;
         feedback.classList.remove("is-learning");
+        reviewActions.hidden = true;
         nextButton.hidden = true;
         answerList.replaceChildren();
+        setJourneyPosition(currentQuestion);
 
         question.options.forEach((option, index) => {
           const button = document.createElement("button");
@@ -1099,7 +1142,11 @@
 
         const question = questions[currentQuestion];
         const isCorrect = selectedIndex === question.answer;
-        if (isCorrect) score += 1;
+        selectedAnswers[currentQuestion] = selectedIndex;
+        score = selectedAnswers.reduce(
+          (total, answer, index) => total + Number(answer === questions[index].answer),
+          0,
+        );
         updateScore();
 
         answerList.querySelectorAll(".answer-button").forEach((button, index) => {
@@ -1114,6 +1161,8 @@
           : question.wrongExplanation ?? question.explanation;
         feedback.classList.toggle("is-learning", !isCorrect);
         feedback.hidden = false;
+        reviewActions.hidden = false;
+        previousQuestionButton.disabled = currentQuestion === 0;
         setJourneyPosition(currentQuestion + 1);
         missionCounter.textContent =
           `MISSÃO ${currentQuestion + 1} CONCLUÍDA · ${currentQuestion + 1}/${questions.length}`;
@@ -1149,6 +1198,7 @@
       function startGame() {
         currentQuestion = 0;
         score = 0;
+        selectedAnswers.fill(null);
         introScreen.hidden = true;
         gameScreen.hidden = false;
         answerList.hidden = false;
@@ -1164,6 +1214,12 @@
 
       startButton.addEventListener("click", startGame);
       document.getElementById("restart-button").addEventListener("click", startGame);
+      retryButton.addEventListener("click", renderQuestion);
+      previousQuestionButton.addEventListener("click", () => {
+        if (currentQuestion === 0) return;
+        currentQuestion -= 1;
+        renderQuestion();
+      });
       nextButton.addEventListener("click", () => {
         if (currentQuestion === questions.length - 1) {
           showResult();
