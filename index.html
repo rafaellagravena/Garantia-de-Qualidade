@@ -648,8 +648,11 @@
       .result-message {
         margin-bottom: 14px;
         color: #000;
-        font-size: 10px;
-        line-height: 1.6;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.55;
+        text-align: justify;
+        text-justify: inter-word;
       }
 
       .restart-button {
@@ -795,7 +798,7 @@
             <div class="world-panorama" id="world-panorama">
               <canvas class="world-canvas" id="journey-canvas" width="320" height="100"></canvas>
               <span class="world-sign factory-sign">EMBALAGEM SECUNDÁRIA</span>
-              <span class="world-sign beach-sign">PRAIA!</span>
+              <span class="world-sign beach-sign">RIO DE JANEIRO</span>
               <div class="road" aria-hidden="true"></div>
               <span class="world-stop" data-stop="0" style="left: 52px">1</span>
               <span class="world-stop" data-stop="1" style="left: 152px">2</span>
@@ -1035,7 +1038,7 @@
           "CAMINHO EM FRENTE",
           "ÚLTIMA PARADA",
           "LITORAL À VISTA",
-          "FÉRIAS NA PRAIA!",
+          "RIO DE JANEIRO",
         ];
         missionCounter.textContent =
           completed === questions.length
@@ -1127,7 +1130,7 @@
           resultMessage.textContent =
             "A Lia chegou à praia com todos os cuidados em dia. Qualidade em cada passo — agora é hora de descansar!";
         } else {
-          resultTitle.textContent = "Chegamos à praia!";
+          resultTitle.textContent = "As férias finalmente chegaram!";
           resultMessage.textContent =
             "Cada missão foi uma chance de aprender. Leve esses cuidados com você e aproveite as férias com tranquilidade.";
         }
