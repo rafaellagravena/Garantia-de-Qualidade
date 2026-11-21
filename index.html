@@ -633,9 +633,10 @@
       .result-title {
         margin-bottom: 8px;
         color: #254258;
-        font-size: 19px;
+        font-size: clamp(12px, 4vw, 17px);
         font-weight: 900;
         line-height: 1.3;
+        white-space: nowrap;
       }
 
       .result-score {
@@ -838,7 +839,7 @@
             <span id="feedback-text"></span>
           </div>
           <button class="next-button" id="next-button" type="button" hidden>Continuar jornada ▶</button>
-          <p class="game-note">Dica da Lia: sem pressa — cada etapa bem-feita aproxima a gente do mar.</p>
+          <p class="game-note">Dica da Lia: realizando as atividades com qualidade, garantimos férias tranquilas.</p>
 
           <div class="result-panel" id="result-panel" aria-live="polite" hidden>
             <div class="result-icon" aria-hidden="true">🏖️</div>
