@@ -131,6 +131,21 @@
         padding-top: 21px;
       }
 
+      .intro-screen #start-button {
+        animation: start-button-blink 1s steps(2, end) infinite;
+      }
+
+      @keyframes start-button-blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.65;
+        }
+      }
+
       .eyebrow {
         margin: 0 0 11px;
         color: #56744a;
