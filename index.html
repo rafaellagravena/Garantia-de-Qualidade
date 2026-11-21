@@ -132,17 +132,17 @@
       }
 
       .intro-screen #start-button {
-        animation: start-button-blink 1s steps(2, end) infinite;
+        animation: start-button-pulse 1.2s ease-in-out infinite;
       }
 
-      @keyframes start-button-blink {
+      @keyframes start-button-pulse {
         0%,
         100% {
-          opacity: 1;
+          transform: scale(1);
         }
 
         50% {
-          opacity: 0.65;
+          transform: scale(1.035);
         }
       }
 
