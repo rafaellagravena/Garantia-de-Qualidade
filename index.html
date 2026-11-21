@@ -898,6 +898,8 @@
           answer: 1,
           explanation:
             "Seguir a etapa conforme o procedimento e registrar o que foi realizado evita afirmar que uma atividade foi concluída sem ter certeza.",
+          wrongExplanation:
+            "Pressa e memória não substituem um registro correto! Execute a etapa conforme o procedimento e registre no momento certo, sem deixar para depois ou assumir que algo foi feito.",
         },
         {
           label: "QUALIFICAÇÃO E TREINAMENTO",
@@ -913,17 +915,17 @@
             "Se ainda não está qualificada, a Lia não deve executar a atividade. Ela deve seguir os requisitos de treinamento e qualificação antes de realizá-la.",
         },
         {
-          label: "REVISÃO FINAL",
+          label: "ATIVIDADE URGENTE",
           prompt:
-            "É o último dia de trabalho antes das férias. Qual checklist ajuda a Lia a sair tranquila?",
+            "Pouco antes de ir embora, Lia recebe uma atividade urgente. Qual deve ser sua atitude?",
           options: [
-            "Conferir atividades e records, verificar prazos e comunicar pendências.",
-            "Encerrar só o que é rápido e deixar o restante sem sinalização.",
-            "Assinar os registros atrasados sem revisar.",
+            "Avaliar a atividade e, se não puder concluí-la adequadamente, alinhar com a liderança.",
+            "Fazer correndo, mesmo que precise pular algumas etapas.",
+            "Fingir que não viu porque as férias já começaram “mentalmente”.",
           ],
           answer: 0,
           explanation:
-            "Uma revisão final, sem pressa, ajuda a garantir records corretos, prazos cuidados e uma passagem transparente.",
+            "Avaliar a atividade com calma e alinhar com a liderança quando não for possível concluí-la adequadamente ajuda a preservar a qualidade e a segurança.",
         },
       ];
 
@@ -1095,7 +1097,9 @@
         });
 
         feedbackTitle.textContent = isCorrect ? "Boa escolha! +1 estrela" : "Lição aprendida!";
-        feedbackText.textContent = question.explanation;
+        feedbackText.textContent = isCorrect
+          ? question.explanation
+          : question.wrongExplanation ?? question.explanation;
         feedback.classList.toggle("is-learning", !isCorrect);
         feedback.hidden = false;
         setJourneyPosition(currentQuestion + 1);
