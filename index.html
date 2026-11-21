@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta
       name="description"
-      content="Uma aventura interativa em pixel art: complete missões na fábrica Sandoz e siga rumo às férias."
+      content="Uma aventura em pixel art: complete missões na Embalagem Secundária da Sandoz e siga rumo às férias no Rio de Janeiro."
     />
     <meta name="theme-color" content="#193450" />
-    <title>Rumo às férias! | Missão Sandoz</title>
+    <title>Missão pré-férias | Sandoz</title>
     <style>
       :root {
         color-scheme: light;
@@ -25,7 +25,7 @@
         --pixel-line: #294d67;
         --pixel-shadow: #9c835c;
         --paper-shadow: #d7bd83;
-        --text-muted: #65796d;
+        --text-muted: #000;
         --pixel-font: "Courier New", Courier, monospace;
       }
 
@@ -157,7 +157,7 @@
       .intro-copy {
         max-width: 380px;
         margin-bottom: 16px;
-        color: #536e6c;
+        color: #000;
         font-size: 12px;
         line-height: 1.65;
       }
@@ -295,7 +295,7 @@
 
       .intro-footnote {
         margin: 11px 0 0;
-        color: #647968;
+        color: #000;
         font-size: 9px;
         line-height: 1.5;
         text-align: center;
@@ -312,13 +312,13 @@
         justify-content: space-between;
         gap: 10px;
         margin-bottom: 10px;
-        color: #526a61;
+        color: #000;
         font-size: 10px;
         font-weight: 900;
       }
 
       .mission-counter {
-        color: #526a61;
+        color: #000;
       }
 
       .score {
@@ -403,7 +403,7 @@
         border: 2px solid #28465c;
         background: #fff1c8;
         box-shadow: 2px 2px 0 rgb(31 51 66 / 35%);
-        color: #4d6980;
+        color: #000;
         font-size: 8px;
         font-weight: 900;
         transform: translateX(-50%);
@@ -581,7 +581,7 @@
 
       .game-note {
         margin: 13px 0 0;
-        color: #65796d;
+        color: #000;
         font-size: 9px;
         line-height: 1.5;
         text-align: center;
@@ -630,7 +630,7 @@
 
       .result-message {
         margin-bottom: 14px;
-        color: #5a7066;
+        color: #000;
         font-size: 10px;
         line-height: 1.6;
       }
@@ -641,7 +641,7 @@
 
       .footer-note {
         padding: 0 15px 16px;
-        color: #6b796b;
+        color: #000;
         font-size: 9px;
         line-height: 1.55;
         text-align: center;
@@ -718,24 +718,25 @@
       <header class="topbar">
         <div class="brand">
           <span class="brand-icon" aria-hidden="true">✦</span>
-          FÉRIAS EM MISSÃO
+          MISSÃO PRÉ FÉRIAS
         </div>
         <span class="top-note">UMA AVENTURA COM QUALIDADE</span>
       </header>
 
       <main>
         <section class="screen intro-screen" id="intro-screen">
-          <p class="eyebrow">JOGO DE MISSÃO · DIA 1</p>
-          <h1>Da fábrica ao mar!</h1>
+          <p class="eyebrow">PRONTO PARA O DESAFIO?</p>
+          <h1>Da Sandoz ao mar!</h1>
           <p class="intro-copy">
-            A jornada das férias começa na indústria Sandoz. Complete as missões
-            com atenção e ajude a Lia a chegar tranquila à praia.
+            As férias da Lia estão quase começando! A jornada parte da Embalagem
+            Secundária da Sandoz rumo às praias do Rio de Janeiro. Complete cada missão
+            com atenção e ajude a Lia a chegar ao destino com qualidade e segurança!
           </p>
 
-          <div class="opening-world pixel-frame" aria-label="A fábrica Sandoz e o caminho rumo à praia">
+          <div class="opening-world pixel-frame" aria-label="A Embalagem Secundária da Sandoz e o caminho rumo à praia">
             <canvas class="opening-canvas" id="opening-canvas" width="320" height="100"></canvas>
-            <span class="scene-label">INDÚSTRIA SANDOZ</span>
-            <span class="scene-clock">DIA 1 · 08:00</span>
+            <span class="scene-label">EMBALAGEM SECUNDÁRIA</span>
+            <span class="scene-clock">DEZEMBRO</span>
             <span class="pixel-person opening-person" aria-hidden="true">
               <svg viewBox="0 0 16 24">
                 <rect x="4" y="1" width="8" height="3" fill="#49352c" />
@@ -758,7 +759,7 @@
 
           <div class="destination-note">
             <span aria-hidden="true">☀</span>
-            5 missões de qualidade · destino final: férias na praia
+            5 missões de Qualidade
           </div>
 
           <button class="primary-button" id="start-button" type="button">
@@ -776,7 +777,7 @@
           <div class="world-window" id="world-window" aria-label="Mapa da fábrica Sandoz até a praia">
             <div class="world-panorama" id="world-panorama">
               <canvas class="world-canvas" id="journey-canvas" width="320" height="100"></canvas>
-              <span class="world-sign factory-sign">INDÚSTRIA SANDOZ</span>
+              <span class="world-sign factory-sign">EMBALAGEM SECUNDÁRIA</span>
               <span class="world-sign beach-sign">PRAIA!</span>
               <div class="road" aria-hidden="true"></div>
               <span class="world-stop" data-stop="0" style="left: 52px">1</span>
@@ -830,7 +831,7 @@
         </section>
       </main>
 
-      <footer class="footer-note">QUALIDADE EM CADA PASSO. AGORA, É HORA DE DESCANSAR. 🌴</footer>
+      <footer class="footer-note">Garantia de Qualidade - Sandoz</footer>
       <img
         class="factory-source"
         id="factory-source"
@@ -1010,7 +1011,7 @@
         });
 
         const places = [
-          "INDÚSTRIA SANDOZ",
+          "EMBALAGEM SECUNDÁRIA",
           "PORTÃO DA FÁBRICA",
           "CAMINHO EM FRENTE",
           "ÚLTIMA PARADA",
