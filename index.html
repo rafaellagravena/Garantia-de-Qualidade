@@ -362,6 +362,10 @@
         transition: transform 650ms steps(8, end);
       }
 
+      .world-panorama.is-stopped {
+        transition: none;
+      }
+
       .world-canvas {
         display: block;
         width: 640px;
@@ -444,6 +448,7 @@
       }
 
       .world-person.is-wrong-answer {
+        transition: none;
         animation: wrong-answer-reaction 560ms steps(2, end) forwards;
       }
 
@@ -1526,6 +1531,7 @@
         const question = questions[currentQuestion];
         answered = false;
         worldPerson.classList.remove("is-wrong-answer");
+        worldPanorama.classList.remove("is-stopped");
         retryButton.classList.remove("is-retry");
         missionCounter.textContent = `DIA 1 · MISSÃO ${currentQuestion + 1}/${questions.length}`;
         questionLabel.textContent = question.label;
@@ -1592,6 +1598,7 @@
             `MISSÃO ${currentQuestion + 1} CONCLUÍDA · ${currentQuestion + 1}/${questions.length}`;
         } else {
           worldPerson.classList.add("is-wrong-answer");
+          worldPanorama.classList.add("is-stopped");
           retryButton.classList.add("is-retry");
           setJourneyPosition(currentQuestion);
           missionCounter.textContent =
