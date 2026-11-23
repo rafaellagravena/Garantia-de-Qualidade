@@ -1281,90 +1281,120 @@
           prompt:
             "As férias estão chegando! Mas a Lia ainda tem trabalho pela frente. Qual é a melhor escolha para chegar às férias com tranquilidade, qualidade e segurança?",
           options: [
-            "Se organizar, priorizar as atividades e realizar cada uma com atenção, seguindo todas as etapas necessárias.",
-            "Trabalhar o mais rápido possível, mesmo que seja necessário pular algumas etapas.",
-            "Deixar para finalizar tudo no último dia e correr para entregar antes de sair.",
+            {
+              text: "Se organizar, priorizar as atividades e realizar cada uma com atenção, seguindo todas as etapas necessárias.",
+              wrongExplanation: null,
+            },
+            {
+              text: "Trabalhar o mais rápido possível, mesmo que seja necessário pular algumas etapas.",
+              wrongExplanation:
+                "Pular etapas para ganhar velocidade pode comprometer a qualidade e a segurança. Siga o processo completo, mesmo quando houver pressa.",
+            },
+            {
+              text: "Deixar para finalizar tudo no último dia e correr para entregar antes de sair.",
+              wrongExplanation:
+                "Deixar tudo para o último dia aumenta a chance de erros e atrasos. Planeje e priorize as atividades com antecedência.",
+            },
           ],
           answer: 0,
           explanation:
             "Organizar-se, priorizar as atividades e cumprir cada etapa com atenção ajuda a preservar a qualidade e a segurança até as férias.",
-          wrongExplanations: [
-            null,
-            "Pular etapas para ganhar velocidade pode comprometer a qualidade e a segurança. Siga o processo completo, mesmo quando houver pressa.",
-            "Deixar tudo para o último dia aumenta a chance de erros e atrasos. Planeje e priorize as atividades com antecedência.",
-          ],
         },
         {
           label: "REVISÃO DE PROCEDIMENTO",
           prompt:
             "A Lia possui uma ação de revisão de uma WP para concluir no GxQEM. O procedimento revisado já está vigente e a ação está pronta para ser encerrada. O que ela deve fazer?",
           options: [
-            "Enviar a ação para aprovação com antecedência ao prazo final, permitindo tempo adequado para avaliação e eventuais correções.",
-            "Aguardar o último dia do prazo para enviar a ação para aprovação, já que ela está concluída.",
-            "Solicitar a postergação do prazo para deixar a conclusão da ação para depois.",
+            {
+              text: "Enviar a ação para aprovação com antecedência ao prazo final, permitindo tempo adequado para avaliação e eventuais correções.",
+              wrongExplanation: null,
+            },
+            {
+              text: "Aguardar o último dia do prazo para enviar a ação para aprovação, já que ela está concluída.",
+              wrongExplanation:
+                "Esperar até o último dia pode não deixar tempo para avaliação e eventuais correções. Envie a ação com antecedência e acompanhe o prazo.",
+            },
+            {
+              text: "Solicitar a postergação do prazo para deixar a conclusão da ação para depois.",
+              wrongExplanation:
+                "Como a ação está pronta para ser encerrada, pedir postergação sem necessidade apenas adia a conclusão. Envie para aprovação com antecedência.",
+            },
           ],
           answer: 0,
           explanation:
             "Enviar com antecedência ao prazo final dá tempo para a avaliação e para eventuais correções, sem deixar a conclusão para o último dia.",
-          wrongExplanations: [
-            null,
-            "Esperar até o último dia pode não deixar tempo para avaliação e eventuais correções. Envie a ação com antecedência e acompanhe o prazo.",
-            "Como a ação está pronta para ser encerrada, pedir postergação sem necessidade apenas adia a conclusão. Envie para aprovação com antecedência.",
-          ],
         },
         {
           label: "ATENÇÃO À ATIVIDADE",
           prompt:
             "Lia está quase terminando a limpeza da linha quando percebe que esqueceu de registrar uma etapa e não se lembra se chegou a executá-la. As férias estão chegando, mas e agora?",
           options: [
-            "Marcar a etapa como concluída para não atrasar a finalização da limpeza.",
-            "Realizar novamente a etapa conforme o procedimento e fazer o registro corretamente.",
-            "Deixar o campo em branco e continuar a atividade, para não registrar uma informação da qual não tem certeza.",
+            {
+              text: "Marcar a etapa como concluída para não atrasar a finalização da limpeza.",
+              wrongExplanation:
+                "Não marque a etapa como concluída sem ter certeza de que ela foi executada. Siga o procedimento e registre corretamente o que fizer.",
+            },
+            {
+              text: "Realizar novamente a etapa conforme o procedimento e fazer o registro corretamente.",
+              wrongExplanation: null,
+            },
+            {
+              text: "Deixar o campo em branco e continuar a atividade, para não registrar uma informação da qual não tem certeza.",
+              wrongExplanation:
+                "Deixar o campo em branco não resolve a dúvida sobre a execução. Siga o procedimento para realizar a etapa e registre a informação corretamente.",
+            },
           ],
           answer: 1,
           explanation:
             "Seguir a etapa conforme o procedimento e registrar o que foi realizado evita afirmar que uma atividade foi concluída sem ter certeza.",
-          wrongExplanations: [
-            "Não marque a etapa como concluída sem ter certeza de que ela foi executada. Siga o procedimento e registre corretamente o que fizer.",
-            null,
-            "Deixar o campo em branco não resolve a dúvida sobre a execução. Siga o procedimento para realizar a etapa e registre a informação corretamente.",
-          ],
         },
         {
           label: "QUALIFICAÇÃO E TREINAMENTO",
           prompt:
             "Mais uma missão antes das férias! Uma colega precisa de ajuda para finalizar uma atividade, mas Lia percebe que ainda não está qualificada para executá-la. Como ela deve agir para seguir sua jornada com qualidade e segurança?",
           options: [
-            "Ajudar para agilizar a conclusão das atividades, mesmo sem possuir a qualificação necessária.",
-            "Não executar a atividade e respeitar os requisitos de treinamento e qualificação antes de realizá-la.",
-            "Revisar rapidamente o procedimento e executar a atividade com o apoio da colega, deixando a qualificação formal para depois.",
+            {
+              text: "Ajudar para agilizar a conclusão das atividades, mesmo sem possuir a qualificação necessária.",
+              wrongExplanation:
+                "Ajudar para agilizar não substitui a qualificação necessária. Faça o treinamento e atenda aos requisitos antes de executar a atividade.",
+            },
+            {
+              text: "Não executar a atividade e respeitar os requisitos de treinamento e qualificação antes de realizá-la.",
+              wrongExplanation: null,
+            },
+            {
+              text: "Revisar rapidamente o procedimento e executar a atividade com o apoio da colega, deixando a qualificação formal para depois.",
+              wrongExplanation:
+                "Revisar o procedimento ou contar com o apoio de uma colega não substitui a qualificação formal. Aguarde atender aos requisitos antes de executar.",
+            },
           ],
           answer: 1,
           explanation:
             "Se ainda não está qualificada, a Lia não deve executar a atividade. Ela deve seguir os requisitos de treinamento e qualificação antes de realizá-la.",
-          wrongExplanations: [
-            "Ajudar para agilizar não substitui a qualificação necessária. Faça o treinamento e atenda aos requisitos antes de executar a atividade.",
-            null,
-            "Revisar o procedimento ou contar com o apoio de uma colega não substitui a qualificação formal. Aguarde atender aos requisitos antes de executar.",
-          ],
         },
         {
           label: "ATIVIDADE URGENTE",
           prompt:
             "Pouco antes de ir embora, Lia recebe uma atividade urgente. Qual deve ser sua atitude?",
           options: [
-            "Avaliar a atividade e, se não puder concluí-la adequadamente, alinhar com a liderança.",
-            "Fazer correndo, mesmo que precise pular algumas etapas.",
-            "Fingir que não viu porque as férias já começaram “mentalmente”.",
+            {
+              text: "Avaliar a atividade e, se não puder concluí-la adequadamente, alinhar com a liderança.",
+              wrongExplanation: null,
+            },
+            {
+              text: "Fazer correndo, mesmo que precise pular algumas etapas.",
+              wrongExplanation:
+                "Pular etapas para terminar rápido pode comprometer a qualidade e a segurança. Avalie se consegue concluir corretamente e alinhe com a liderança se não.",
+            },
+            {
+              text: "Fingir que não viu porque as férias já começaram “mentalmente”.",
+              wrongExplanation:
+                "Ignorar a atividade não resolve a urgência. Avalie se é possível concluí-la adequadamente e alinhe com a liderança se precisar de apoio ou continuidade.",
+            },
           ],
           answer: 0,
           explanation:
             "Avaliar a atividade com calma e alinhar com a liderança quando não for possível concluí-la adequadamente ajuda a preservar a qualidade e a segurança.",
-          wrongExplanations: [
-            null,
-            "Pular etapas para terminar rápido pode comprometer a qualidade e a segurança. Avalie se consegue concluir corretamente e alinhe com a liderança se não.",
-            "Ignorar a atividade não resolve a urgência. Avalie se é possível concluí-la adequadamente e alinhe com a liderança se precisar de apoio ou continuidade.",
-          ],
         },
       ];
 
@@ -1520,7 +1550,7 @@
 
           const text = document.createElement("span");
           text.className = "answer-text";
-          text.textContent = option;
+          text.textContent = option.text;
           button.append(key, text);
           button.addEventListener("click", () => selectAnswer(index));
           answerList.append(button);
@@ -1551,7 +1581,7 @@
         feedbackTitle.textContent = isCorrect ? "Boa escolha! +1 estrela" : "Não foi dessa vez! Tente novamente.";
         feedbackText.textContent = isCorrect
           ? question.explanation
-          : question.wrongExplanations[selectedIndex];
+          : question.options[selectedIndex].wrongExplanation;
         feedback.classList.toggle("is-learning", !isCorrect);
         feedback.hidden = false;
         reviewActions.hidden = false;
