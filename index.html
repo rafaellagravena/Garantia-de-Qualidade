@@ -443,6 +443,10 @@
         animation: walk-bob 280ms steps(2, end) infinite;
       }
 
+      .world-person.is-wrong-answer {
+        animation: wrong-answer-reaction 560ms steps(2, end);
+      }
+
       .dialogue-box {
         position: relative;
         margin-top: 17px;
@@ -738,6 +742,25 @@
 
         50% {
           transform: translateY(-3px);
+        }
+      }
+
+      @keyframes wrong-answer-reaction {
+        0%,
+        100% {
+          transform: translateX(0) rotate(0);
+        }
+
+        25% {
+          transform: translateX(-3px) rotate(-12deg);
+        }
+
+        50% {
+          transform: translateX(3px) rotate(12deg);
+        }
+
+        75% {
+          transform: translateX(-2px) rotate(-8deg);
         }
       }
 
@@ -1315,6 +1338,7 @@
       const scoreDisplay = document.getElementById("score");
       const worldWindow = document.getElementById("world-window");
       const worldPanorama = document.getElementById("world-panorama");
+      const worldPerson = document.getElementById("world-person");
       const resultPanel = document.getElementById("result-panel");
       const resultTitle = document.getElementById("result-title");
       const resultScore = document.getElementById("result-score");
@@ -1424,6 +1448,7 @@
       function renderQuestion() {
         const question = questions[currentQuestion];
         answered = false;
+        worldPerson.classList.remove("is-wrong-answer");
         missionCounter.textContent = `DIA 1 · MISSÃO ${currentQuestion + 1}/${questions.length}`;
         questionLabel.textContent = question.label;
         questionTitle.textContent = question.prompt;
@@ -1471,11 +1496,11 @@
 
         answerList.querySelectorAll(".answer-button").forEach((button, index) => {
           button.disabled = true;
-          if (index === question.answer) button.classList.add("is-correct");
+          if (isCorrect && index === question.answer) button.classList.add("is-correct");
           if (index === selectedIndex && !isCorrect) button.classList.add("is-incorrect");
         });
 
-        feedbackTitle.textContent = isCorrect ? "Boa escolha! +1 estrela" : "Lição aprendida!";
+        feedbackTitle.textContent = isCorrect ? "Boa escolha! +1 estrela" : "Não foi dessa vez! Tente novamente.";
         feedbackText.textContent = isCorrect
           ? question.explanation
           : question.wrongExplanation ?? question.explanation;
@@ -1483,14 +1508,25 @@
         feedback.hidden = false;
         reviewActions.hidden = false;
         previousQuestionButton.disabled = currentQuestion === 0;
-        setJourneyPosition(currentQuestion + 1);
-        missionCounter.textContent =
-          `MISSÃO ${currentQuestion + 1} CONCLUÍDA · ${currentQuestion + 1}/${questions.length}`;
+        if (isCorrect) {
+          setJourneyPosition(currentQuestion + 1);
+          missionCounter.textContent =
+            `MISSÃO ${currentQuestion + 1} CONCLUÍDA · ${currentQuestion + 1}/${questions.length}`;
+        } else {
+          worldPerson.classList.add("is-wrong-answer");
+          setJourneyPosition(currentQuestion);
+          missionCounter.textContent =
+            `TENTE NOVAMENTE · MISSÃO ${currentQuestion + 1}/${questions.length}`;
+        }
 
         nextButton.textContent =
           currentQuestion === questions.length - 1 ? "Chegar às férias! ▶" : "Continuar jornada ▶";
-        nextButton.hidden = false;
-        nextButton.focus();
+        nextButton.hidden = !isCorrect;
+        if (isCorrect) {
+          nextButton.focus();
+        } else {
+          retryButton.focus();
+        }
       }
 
       function showResult() {
