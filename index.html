@@ -1163,9 +1163,9 @@
           <p class="eyebrow">PRONTO PARA O DESAFIO?</p>
           <h1>Da Sandoz ao mar!</h1>
           <p class="intro-copy">
-            As férias da Lia estão quase começando! A jornada parte da Embalagem
+            As férias do Juca estão quase começando! A jornada parte da Embalagem
             Secundária da Sandoz rumo às praias do Rio de Janeiro. Complete cada missão
-            com atenção e ajude a Lia a chegar ao destino com qualidade e segurança!
+            com atenção e ajude o Juca a chegar ao destino com qualidade e segurança!
           </p>
 
           <div class="opening-world pixel-frame" aria-label="A Embalagem Secundária da Sandoz e o caminho rumo à praia">
@@ -1241,7 +1241,7 @@
           </div>
 
           <div class="dialogue-box">
-            <span class="dialogue-name">LIA</span>
+            <span class="dialogue-name">JUCA</span>
             <p class="question-label" id="question-label"></p>
             <h2 class="question-title" id="question-title" tabindex="-1"></h2>
           </div>
@@ -1258,7 +1258,7 @@
             </button>
           </div>
           <button class="next-button" id="next-button" type="button" hidden>Continuar jornada ▶</button>
-          <p class="game-note">Dica da Lia: realizando as atividades com qualidade, garantimos férias tranquilas.</p>
+          <p class="game-note">Dica do Juca: realizando as atividades com qualidade, garantimos férias tranquilas.</p>
 
           <div class="result-panel" id="result-panel" aria-live="polite" hidden>
             <div class="result-icon" aria-hidden="true">🏖️</div>
@@ -1286,7 +1286,7 @@
         {
           label: "NO RITMO CERTO",
           prompt:
-            "As férias estão chegando! Mas a Lia ainda tem trabalho pela frente. Qual é a melhor escolha para chegar às férias com tranquilidade, qualidade e segurança?",
+            "As férias estão chegando! Mas o Juca ainda tem trabalho pela frente. Qual é a melhor escolha para chegar às férias com tranquilidade, qualidade e segurança?",
           options: [
             {
               text: "Se organizar, priorizar as atividades e realizar cada uma com atenção, seguindo todas as etapas necessárias.",
@@ -1310,7 +1310,7 @@
         {
           label: "REVISÃO DE PROCEDIMENTO",
           prompt:
-            "A Lia possui uma ação de revisão de uma WP para concluir no GxQEM. O procedimento revisado já está vigente e a ação está pronta para ser encerrada. O que ela deve fazer?",
+            "O Juca possui uma ação de revisão de uma WP para concluir no GxQEM. O procedimento revisado já está vigente e a ação está pronta para ser encerrada. O que ele deve fazer?",
           options: [
             {
               text: "Enviar a ação para aprovação com antecedência ao prazo final, permitindo tempo adequado para avaliação e eventuais correções.",
@@ -1334,7 +1334,7 @@
         {
           label: "ATENÇÃO À ATIVIDADE",
           prompt:
-            "Lia está quase terminando a limpeza da linha quando percebe que esqueceu de registrar uma etapa e não se lembra se chegou a executá-la. As férias estão chegando, mas e agora?",
+            "Juca está quase terminando a limpeza da linha quando percebe que esqueceu de registrar uma etapa e não se lembra se chegou a executá-la. As férias estão chegando, mas e agora?",
           options: [
             {
               text: "Marcar a etapa como concluída para não atrasar a finalização da limpeza.",
@@ -1358,7 +1358,7 @@
         {
           label: "QUALIFICAÇÃO E TREINAMENTO",
           prompt:
-            "Mais uma missão antes das férias! Uma colega precisa de ajuda para finalizar uma atividade, mas Lia percebe que ainda não está qualificada para executá-la. Como ela deve agir para seguir sua jornada com qualidade e segurança?",
+            "Mais uma missão antes das férias! Um colega precisa de ajuda para finalizar uma atividade, mas Juca percebe que ainda não está qualificado para executá-la. Como ele deve agir para seguir sua jornada com qualidade e segurança?",
           options: [
             {
               text: "Ajudar para agilizar a conclusão das atividades, mesmo sem possuir a qualificação necessária.",
@@ -1377,12 +1377,12 @@
           ],
           answer: 1,
           explanation:
-            "Se ainda não está qualificada, a Lia não deve executar a atividade. Ela deve seguir os requisitos de treinamento e qualificação antes de realizá-la.",
+            "Se ainda não está qualificado, o Juca não deve executar a atividade. Ele deve seguir os requisitos de treinamento e qualificação antes de realizá-la.",
         },
         {
           label: "ATIVIDADE URGENTE",
           prompt:
-            "Pouco antes de ir embora, Lia recebe uma atividade urgente. Qual deve ser sua atitude?",
+            "Pouco antes de ir embora, Juca recebe uma atividade urgente. Qual deve ser sua atitude?",
           options: [
             {
               text: "Avaliar a atividade e, se não puder concluí-la adequadamente, alinhar com a liderança.",
@@ -1523,7 +1523,7 @@
           completed === questions.length
             ? "JORNADA CONCLUÍDA"
             : `DIA 1 · MISSÃO ${completed + 1}/${questions.length}`;
-        worldWindow.setAttribute("aria-label", `Lia está em: ${places[completed]}`);
+        worldWindow.setAttribute("aria-label", `Juca está em: ${places[completed]}`);
       }
 
       function updateScore() {
@@ -1632,7 +1632,7 @@
         if (score === questions.length) {
           resultTitle.textContent = "Férias merecidas!";
           resultMessage.textContent =
-            "Missão cumprida! 🎉 Você ajudou a Lia a finalizar todas as atividades com qualidade e responsabilidade. Agora, é hora de deixar o trabalho para trás e seguir rumo às merecidas férias! 🌴☀️ Aproveite e até o próximo ano!";
+            "Missão cumprida! 🎉 Você ajudou o Juca a finalizar todas as atividades com qualidade e responsabilidade. Agora, é hora de deixar o trabalho para trás e seguir rumo às merecidas férias! 🌴☀️ Aproveite e até o próximo ano!";
         } else {
           resultTitle.textContent = "As férias finalmente chegaram!";
           resultMessage.textContent =
