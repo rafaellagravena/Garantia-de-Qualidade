@@ -1680,7 +1680,11 @@
       factoryImage.addEventListener("load", renderWorlds);
       if (factoryImage.complete && factoryImage.naturalWidth > 0) renderWorlds();
       window.addEventListener("resize", () => {
-        if (!gameScreen.hidden) setJourneyPosition(currentQuestion + Number(answered));
+        if (!gameScreen.hidden) {
+          const answeredCorrectly =
+            answered && selectedAnswers[currentQuestion] === questions[currentQuestion].answer;
+          setJourneyPosition(currentQuestion + Number(answeredCorrectly));
+        }
       });
     </script>
   </body>
