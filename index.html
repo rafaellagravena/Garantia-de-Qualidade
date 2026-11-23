@@ -444,7 +444,7 @@
       }
 
       .world-person.is-wrong-answer {
-        animation: wrong-answer-reaction 560ms steps(2, end);
+        animation: wrong-answer-reaction 560ms steps(2, end) forwards;
       }
 
       .dialogue-box {
@@ -752,15 +752,15 @@
         }
 
         25% {
-          transform: translateX(-3px) rotate(-12deg);
+          transform: translateY(-5px) rotate(-8deg);
         }
 
         50% {
-          transform: translateX(3px) rotate(12deg);
+          transform: translateY(0) rotate(8deg);
         }
 
         75% {
-          transform: translateX(-2px) rotate(-8deg);
+          transform: translateY(-2px) rotate(-5deg);
         }
       }
 
